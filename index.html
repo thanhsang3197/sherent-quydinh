@@ -3,108 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thông báo Quy định Thuê - SHERENT</title>
+    <title>Quy Định Thuê - SHERENT</title>
+    
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Import FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        :root {
+            --primary-color: #8c7355; /* Màu nâu sang trọng */
+            --bg-color: #fcfaf8; /* Màu kem sữa */
+            --text-color: #333333;
+            --light-text: #666666;
+            --danger-bg: #fff5f5;
+            --danger-text: #c53030;
+            --card-bg: #ffffff;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Mulish', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f9;
+            padding: 20px 15px;
+            background-image: radial-gradient(var(--primary-color) 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            background-color: #fdfbf9;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        h1 {
-            color: #333;
+
+        .header {
             text-align: center;
-            font-size: 24px;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px; /* Tăng gấp đôi kích thước (gốc: 32px) */
+            font-weight: 700;
+            color: #000000; /* Thay đổi sang màu đen */
+            letter-spacing: 2px;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 28px; /* Tăng gấp đôi kích thước (gốc: 14px) */
+            color: var(--light-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
             margin-bottom: 20px;
+            font-weight: 600;
+            line-height: 1.3;
         }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            margin: 20px 0;
+            opacity: 0.5;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid rgba(140, 115, 85, 0.1);
+        }
+
         h2 {
-            color: #555;
+            font-family: 'Playfair Display', serif;
             font-size: 18px;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        p {
-            margin: 0 0 10px 0;
-            color: #666;
+
+        h2 i {
+            font-size: 16px;
         }
+
         ul {
-            margin: 0 0 10px 0;
+            margin: 0;
             padding-left: 20px;
-            color: #666;
         }
+
         li {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            color: #444;
         }
-        span {
-            display: inline-block;
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        .alert-box {
+            background-color: var(--danger-bg);
+            color: var(--danger-text);
+            border-left: 4px solid var(--danger-text);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .alert-box i {
+            font-size: 24px;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 16px;
+            margin-top: 0;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #fafafa;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Trang trí cho Desktop (Màn hình lớn) */
+        .desktop-decor {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .desktop-decor {
+                display: block;
+                position: fixed;
+                top: 50%;
+                font-family: 'Playfair Display', serif;
+                font-size: 120px;
+                color: var(--primary-color);
+                opacity: 0.04;
+                z-index: -1;
+                font-weight: 700;
+                letter-spacing: 20px;
+                pointer-events: none;
+            }
+            .decor-left {
+                left: -80px;
+                transform: translateY(-50%) rotate(-90deg);
+            }
+            .decor-right {
+                right: -120px;
+                transform: translateY(-50%) rotate(90deg);
+            }
+        }
+
+        /* Tối ưu hiển thị cho thiết bị di động tránh bị tràn chữ */
+        @media (max-width: 600px) {
+            .logo { font-size: 48px; }
+            .subtitle { font-size: 20px; }
+        }
+
+        @media (max-width: 400px) {
+            .logo { font-size: 38px; }
+            .subtitle { font-size: 18px; }
+            h2 { font-size: 16px; }
+            body { padding: 10px; }
         }
     </style>
 </head>
 <body>
 
+    <div class="desktop-decor decor-left">SHERENT</div>
+    <div class="desktop-decor decor-right">SHERENT</div>
+
     <div class="container">
-        <h1>[cite: 1] SHERENTQUY ĐỊNH THUÊ ÁP DỤNG TỪ 01/2026</h1>
-
-        <h2>[cite: 2] Khi khách nhận được sản phẩm:</h2>
-        <ul>
-            <li>[cite: 3] Kiểm tra tình trạng sản phẩm và báo lại cho Sherent trong vòng 1 tiếng từ lúc nhận được sản phẩm.</li>
-            <li>[cite: 4] Những trường hợp sản phẩm bị lỗi mà khách báo sau 1 tiếng Sherent không hỗ trợ.</li>
-            <li>[cite: 5] Sherent cam kết sản phẩm đến tay bạn luôn trong tình trạng tốt nhất.</li>
-        </ul>
-
-        <h2>[cite: 6] Bạn tuyệt đối không giặt hấp, không ủi đồ, không chỉnh sửa đồ.</h2>
-
-        <h2>[cite: 7] Thời gian giữ đồ :</h2>
-        <ul>
-            <li>[cite: 8] Đối với sp thuê 3 ngày: Ngày nhận đồ, ngày mặc, ngày trả đồ.</li>
-            <li>[cite: 9] Đối với sp thuê 1 ngày: Nhận ngày hôm trước và trả trong ngày hôm sau, trả trễ tính theo giá thuê 3 ngày .</li>
-            <li>[cite: 10] Ngày nhận đồ sản phẩm sẽ được gửi sau 15h</li>
-            <li>[cite: 11] Ngày trả đồ bạn vui lòng gửi lại shop trước 20h .</li>
-            <li>[cite: 12] Sherent sẽ kiểm tra, nếu không có vấn đề gì shop sẽ hoàn cọc ngay, chậm nhất là 2 tiếng.</li>
-        </ul>
-
-        <h2>[cite: 13] Các trường hợp phụ thu:</h2>
-        <ul>
-            <li>[cite: 14] Sản phẩm cần phải tẩy phụ thu từ 100-200k tuỳ vết dơ, hư dây kéo phụ thu 80-100k.</li>
-            <li>[cite: 15] Sản phẩm bị xước nhẹ ( dưới 2 vết không quá 1cm) phụ thu 250k</li>
-        </ul>
-
-        <h2>[cite: 16] Các trường hợp không hoàn tiền thuê :</h2>
-        <ul>
-            <li>[cite: 17] Sherent không hoàn phí thuê trong bất kì trường hợp nào, chỉ hỗ trợ bảo lưu phí thuê đối với khách có việc đột xuất (có báo trước 5 ngày)</li>
-        </ul>
-
-        <h2>[cite: 18] Các trường hợp không hoàn cọc :</h2>
-        <ul>
-            <li>[cite: 19] Sản phẩm bị hư hỏng không có khả năng phục hồi</li>
-        </ul>
-
-        <h2>[cite: 20] Các trường hợp tính thêm phí thuê :</h2>
-        <ul>
-            <li>[cite: 21] Đối với khách thuê 1 ngày nhưng trả trễ, shop tự động tính lên 3 ngày.</li>
-            <li>[cite: 22] Đối với khách thuê 3 ngày, khách thuê thêm ngày có báo trước +10%/1 ngày</li>
-            <li>[cite: 23] Khách không báo trước làm lỡ lịch thuê sau +100% giá thuê trong 3 ngày, sau 3 ngày tiếp tục +100%.</li>
-        </ul>
-
-        <h2>[cite: 24] Chương trình khuyến mãi của Sherent Giảm 10% tổng hoá đơn đối với khách thuê từ 3sp trở lên.</h2>
         
-        <h2>[cite: 25] Xem thêm trên FB, IG để biết các chương trình mới nhất.</h2>
-        <ul>
-            <li>[cite: 26] Shop cập nhật mẫu, giá thuê, phí cọc tại Instagram.</li>
-            <li>[cite: 27] Thuê Váy tiệc tại : IG thuedothietke.sherent</li>
-            <li>[cite: 28] Thuê Áo dài tại : IG thueaodaigiare.sherent</li>
-        </ul>
+        <div class="header">
+            <h1 class="logo">SHERENT</h1>
+            <div class="subtitle">Quy định thuê trang phục</div>
+            <div><span class="highlight">Áp dụng từ 01/2026</span></div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-solid fa-box-open"></i> Khi nhận sản phẩm</h2>
+            <ul>
+                <li>Kiểm tra tình trạng sản phẩm và báo lại cho Sherent trong vòng <strong>1 tiếng</strong> từ lúc nhận được sản phẩm.</li>
+                <li>Những trường hợp sản phẩm bị lỗi mà khách báo sau 1 tiếng Sherent xin phép <strong>không hỗ trợ</strong>.</li>
+                <li>Sherent cam kết sản phẩm đến tay bạn luôn trong tình trạng tốt nhất.</li>
+            </ul>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div>
+                Bạn tuyệt đối không giặt hấp, không ủi đồ, không chỉnh sửa đồ.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-regular fa-clock"></i> Thời gian giữ đồ</h2>
+            <ul>
+                <li><strong>Đối với sản phẩm thuê 3 ngày:</strong> Ngày nhận đồ, ngày mặc, ngày trả đồ.</li>
+                <li><strong>Đối với sản phẩm thuê 1 ngày:</strong> Nhận ngày hôm trước và trả trong ngày hôm sau. Trả trễ tính theo giá thuê 3 ngày.</li>
+                <li><strong>Ngày nhận đồ:</strong> Sản phẩm sẽ được gửi sau 15h.</li>
+                <li><strong>Ngày trả đồ:</strong> Bạn vui lòng gửi lại shop trước 20h.</li>
+                <li>Sherent sẽ kiểm tra, nếu không có vấn đề gì shop sẽ hoàn cọc ngay, chậm nhất là 2 tiếng.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-solid fa-file-invoice-dollar"></i> Các trường hợp phụ thu</h2>
+            <ul>
+                <li>Sản phẩm cần phải tẩy: Phụ thu từ <strong>100k - 200k</strong> tuỳ vết dơ.</li>
+                <li>Hư dây kéo: Phụ thu <strong>80k - 100k</strong>.</li>
+                <li>Sản phẩm bị xước nhẹ (dưới 2 vết, không quá 1cm): Phụ thu <strong>250k</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-solid fa-rotate-left"></i> Hoàn tiền & Hoàn cọc</h2>
+            <ul>
+                <li><strong>Không hoàn tiền thuê:</strong> Sherent không hoàn phí thuê trong bất kì trường hợp nào. Chỉ hỗ trợ bảo lưu phí thuê đối với khách có việc đột xuất (yêu cầu báo trước 5 ngày).</li>
+                <li><strong>Không hoàn cọc:</strong> Trong trường hợp sản phẩm bị hư hỏng không có khả năng phục hồi.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-solid fa-calculator"></i> Tính thêm phí thuê</h2>
+            <ul>
+                <li>Khách thuê 1 ngày nhưng trả trễ: Shop tự động tính lên giá 3 ngày.</li>
+                <li>Khách thuê 3 ngày, muốn thuê thêm ngày (có báo trước): <strong>+10% / 1 ngày</strong>.</li>
+                <li>Khách không báo trước làm lỡ lịch thuê sau: <strong>+100%</strong> giá thuê trong 3 ngày, sau 3 ngày tiếp tục <strong>+100%</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <h3><i class="fa-solid fa-gift" style="color: #e53e3e; margin-right: 8px;"></i> ƯU ĐÃI TỪ SHERENT</h3>
+            <p style="margin-bottom: 20px;">Giảm <strong>10%</strong> tổng hoá đơn đối với khách thuê từ 3 sản phẩm trở lên.</p>
+            
+            <div class="divider"></div>
+            
+            <p style="font-size: 14px; color: var(--light-text); margin-bottom: 15px;">Shop cập nhật mẫu, giá thuê, phí cọc tại Instagram. Xem thêm để biết các chương trình mới nhất!</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/thuedothietke.sherent/" target="_blank" class="social-link">
+                    <i class="fa-brands fa-instagram" style="font-size: 20px; color: #E1306C;"></i> 
+                    Thuê Váy tiệc: @thuedothietke.sherent
+                </a>
+                <a href="https://www.instagram.com/thueaodaigiare.sherent/" target="_blank" class="social-link">
+                    <i class="fa-brands fa-instagram" style="font-size: 20px; color: #E1306C;"></i> 
+                    Thuê Áo dài: @thueaodaigiare.sherent
+                </a>
+            </div>
+
+            <div style="margin-top: 25px; border-radius: 12px; overflow: hidden; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2329.6507840114527!2d106.590899080097!3d10.88836512033362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d5623c19fef1%3A0xc62065a754281c7c!2sSHERENT!5e0!3m2!1svi!2s!4v1779203072051!5m2!1svi!2s" width="100%" height="300" style="border:0; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px; font-size: 12px; color: #999;">
+            &copy; 2026 Sherent. All rights reserved.
+        </div>
 
     </div>
 
